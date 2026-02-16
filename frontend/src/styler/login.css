@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* VARIÁVEIS GLOBAIS */
+:root {
+  --nav-altura: 8vh;
+
+  --azul-confianca: #2C3E50;
+  --azul-foco: #3498DB;
+  --verde-sucesso: #27AE60;
+  --amarelo-atencao: #F1C40F;
+  --branco-fundo: #F4F7F6;
+  --cinza-borda: #E0E4E8;
+  --cinza-texto: #5D6D7E;
+  --vermelho-erro: #E74C3C;
+}
+
+/* CONTAINER */
+.login-container {
+  width: 90vw;
+  min-height: calc(100vh - var(--nav-altura));
+  padding: calc(var(--nav-altura) + 6vh) 4vw 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--branco-fundo);
+}
+
+/* CARD */
+.login-card {
+  width: 100%;
+  max-width: 28rem;
+  padding: 4vh 3vw;
+  background: #ffffff;
+  border-radius: 1.2rem;
+  box-shadow: 0 1.5vh 3vh rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+/* ÍCONE */
+.login-icon {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  color: var(--azul-foco);
+  margin-bottom: 2vh;
+}
+
+/* TÍTULO */
+.login-title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  margin-bottom: 1vh;
+  color: var(--azul-confianca);
+}
+
+/* SUBTÍTULO */
+.login-subtitle {
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  color: var(--cinza-texto);
+  margin-bottom: 3vh;
+}
+
+/* ERRO */
+.login-error {
+  background: #fee2e2;
+  color: var(--vermelho-erro);
+  padding: 1.5vh 1vw;
+  border-radius: 0.6rem;
+  font-size: 0.9rem;
+  margin-bottom: 2vh;
+}
+
+/* FORM */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+/* INPUT */
+.input-group {
+  text-align: left;
+}
+
+.input-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.6vh;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 1.4vh 1vw;
+  border-radius: 0.7rem;
+  border: 1px solid var(--cinza-borda);
+  font-size: 1rem;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--azul-foco);
+}
+
+/* BOTÃO */
+.login-button {
+  margin-top: 3vh;
+  padding: 1.6vh 1vw;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.9rem;
+  border: none;
+  cursor: pointer;
+  background: var(--azul-foco);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6vw;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.login-button:hover {
+  transform: translateY(-0.3vh);
+  box-shadow: 0 1vh 1.5vh rgba(0, 0, 0, 0.15);
+}
+
+.login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* SPINNER */
+.spinner {
+  width: 2vh;
+  height: 2vh;
+  border: 0.3vh solid #ffffff;
+  border-top: 0.3vh solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .login-card {
+    padding: 4vh 5vw;
+  }
+}
+
+/* --- ADICIONADO PARA RECUPERAÇÃO DE SENHA --- */
+
+/* MENSAGEM DE SUCESSO (Verde) */
+.login-success {
+  background: #dcfce7; /* Verde clarinho */
+  color: var(--verde-sucesso);
+  padding: 1.5vh 1vw;
+  border-radius: 0.6rem;
+  font-size: 0.9rem;
+  margin-bottom: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5vw;
+}
+
+/* RODAPÉ DO CARD (Link de Esqueci Senha) */
+.login-footer {
+  margin-top: 2.5vh;
+  border-top: 1px solid var(--cinza-borda);
+  padding-top: 2vh;
+}
+
+.login-footer a {
+  color: var(--cinza-texto);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.login-footer a:hover {
+  color: var(--azul-foco);
+}
+
+/* BOTÃO DE VOLTAR */
+.back-button {
+  background: none;
+  border: none;
+  color: var(--cinza-texto);
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4vw;
+  margin: 2vh auto 0;
+}
+
+.back-button:hover {
+  color: var(--azul-confianca);
+  text-decoration: underline;
+}

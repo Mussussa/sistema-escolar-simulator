@@ -1,0 +1,234 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* VARIÁVEIS */
+:root {
+  --azul-confianca: #2C3E50;
+  --azul-foco: #3498DB;
+  --verde-sucesso: #27AE60;
+  --amarelo-atencao: #F1C40F;
+  --branco-fundo: #F4F7F6;
+  --cinza-borda: #E0E4E8;
+  --cinza-texto: #5D6D7E;
+  --vermelho-erro: #E74C3C;
+  --nav-altura: 80px; /* Ajuste conforme a altura da navbar */
+}
+
+/* CONTAINER PRINCIPAL */
+/* CONTAINER PRINCIPAL - Ajuste para não "balançar" */
+.inscricao-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 100px 15px 40px; /* Padding fixo em cima para a navbar */
+  background-color: var(--branco-fundo);
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* CARD DO FORMULÁRIO - Removido vh/vw para maior estabilidade */
+.inscricao-card {
+  background: white;
+  padding: 30px; /* Fixo é melhor para cards */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* HEADER */
+.inscricao-header {
+  text-align: center;
+  margin-bottom: 3vh;
+}
+
+.inscricao-icon {
+  font-size: 4vh;
+  color: var(--azul-foco);
+  margin-bottom: 1vh;
+}
+
+.inscricao-title {
+  color: var(--azul-confianca);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  margin-bottom: 1vh;
+}
+
+.inscricao-subtitle {
+  color: var(--cinza-texto);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+/* ALERTAS */
+.alert {
+  padding: 1vh 2vw;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--amarelo-atencao);
+  background-color: #34495e;
+  /* Posicionamento fixo no topo para deslizar */
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  min-width: 300px;
+  box-shadow: 0 4px 6px rgba(124, 92, 241, 0.1);
+
+  /* Animação: 0.5s para entrar, fica parado, e você pode controlar a saída */
+  animation: slideDown 0.5s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    top: -100px; /* Começa fora da tela (em cima) */
+    opacity: 0;
+  }
+  to {
+    top: 15vh;   /* Para na posição final */
+    opacity: 1;
+  }
+}
+
+/* Mantenha suas cores de sucesso e erro */
+.alert.sucesso {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert.erro {
+  background-color: #ca3340;
+  color: #d8c6c8;
+  border: 1px solid #1d1b1b;
+}
+
+/* FORMULÁRIO */
+.inscricao-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vh 2vw;
+}
+
+/* INPUTS */
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5vh;
+  color: var(--azul-confianca);
+  display: flex;
+  align-items: center;
+  gap: 0.5vh;
+}
+
+.input-group input,
+.input-group select {
+  padding: 12px 15px; /* Altura confortável para clique/toque */
+  border: 1px solid var(--cinza-borda);
+  border-radius: 6px;
+  font-size: 16px; /* Evita zoom automático no iOS */
+  width: 100%;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: var(--azul-foco);
+  outline: none;
+}
+
+/* FULL WIDTH */
+.full-width {
+  grid-column: span 2;
+}
+
+/* BOTÃO */
+.btn-enviar {
+  width: 100%;
+  padding: 1.5vh;
+  background-color: var(--verde-sucesso);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-enviar:hover {
+  background-color: #219150;
+}
+
+.btn-enviar:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+/* LEGAL INFO */
+.legal-info {
+  margin-top: 2vh;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--cinza-texto);
+}
+
+/* FILE UPLOAD */
+.file-upload {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  padding: 1vh 1vw;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #f4f7f6;
+  font-size: 0.95rem;
+  width: 100%;
+  white-space: nowrap;      /* Impede quebra de linha feia */
+  overflow: hidden;         /* Esconde o que sobra */
+  text-overflow: ellipsis;  /* Coloca "..." no final */
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: span 1;
+  }
+
+  .inscricao-card {
+    padding: 4vh 5vw;
+  }
+}

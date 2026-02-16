@@ -1,0 +1,292 @@
+/* Configuracoes.css */
+
+/* Layout principal */
+.config-wrapper {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.config-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.config-header h1 {
+  margin: 0;
+  color: #333;
+}
+
+/* Botões */
+.btn-salvar-topo {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-salvar-topo:hover {
+  background: #218838;
+}
+
+/* Grid e cards */
+.config-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.config-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.config-card h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.span-row {
+  width: 100%;
+}
+
+/* Inputs e grupos */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #555;
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Adicionar curso */
+.add-curso-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.add-curso-box input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.add-curso-box button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.add-curso-box button:hover {
+  background: #0056b3;
+}
+
+/* Container de cursos */
+.cursos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Item de curso */
+.curso-item-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 15px;
+  background: #f9f9f9;
+}
+
+.curso-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.curso-header h3 {
+  margin: 0;
+  color: #333;
+}
+
+.btn-del {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-del:hover {
+  background: #c82333;
+}
+
+/* Seção de turmas */
+.turmas-section {
+  padding: 10px;
+}
+
+.turmas-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+  min-height: 40px;
+}
+
+.turma-tag {
+  background: #e3f2fd;
+  border: 1px solid #bbdefb;
+  border-radius: 4px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.turma-tag span {
+  color: #1565c0;
+  font-size: 14px;
+}
+
+.turma-tag button {
+  background: none;
+  border: none;
+  color: #f44336;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+/* Formulário de adicionar turma */
+.add-turma-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.add-turma-form input,
+.add-turma-form select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-turma-form input[type="text"] {
+  flex: 2;
+}
+
+.add-turma-form input.w-50 {
+  width: 80px;
+}
+
+.add-turma-form select {
+  flex: 1;
+}
+
+.add-turma-form button {
+  background: #17a2b8;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.add-turma-form button:hover {
+  background: #138496;
+}
+
+/* Alertas */
+.alerta {
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.alerta.sucesso {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alerta.erro {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 18px;
+  color: #666;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .config-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .add-curso-box {
+    flex-direction: column;
+  }
+  
+  .add-turma-form {
+    flex-wrap: wrap;
+  }
+  
+  .curso-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}

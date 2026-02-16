@@ -1,0 +1,301 @@
+/* Container Principal */
+.historico-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f4f7f6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header de Busca */
+.busca-header {
+  background: #1a237e;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  width: 40%;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  font-size: 1rem;
+}
+
+.search-bar button {
+  background: #ffc107;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-bar button:hover {
+  background: #ffca28;
+}
+
+/* Layout de Duas Colunas */
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar de Alunos */
+.alunos-lista {
+  width: 300px;
+  background: white;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+}
+
+.aluno-item {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.aluno-item:hover {
+  background: #e8eaf6;
+}
+
+.aluno-item.active {
+  background: #c5cae9;
+  border-left: 5px solid #1a237e;
+}
+
+.aluno-item strong {
+  display: block;
+  color: #333;
+}
+
+.aluno-item span {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* Ficha Detalhada (Lado Direito) */
+.ficha-detalhada {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.placeholder {
+  margin: auto;
+  color: #999;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+/* Estilo Documento/Ficha */
+.ficha-print {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.bloco-info, .bloco-notas, .bloco-financeiro {
+  margin-bottom: 30px;
+}
+
+h2 {
+  border-bottom: 2px solid #1a237e;
+  padding-bottom: 8px;
+  color: #1a237e;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.grid-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+/* Tabela de Notas */
+.tabela-notas {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela-notas th {
+  background: #f8f9fa;
+  text-align: left;
+  padding: 12px;
+  border-bottom: 2px solid #ddd;
+}
+
+.tabela-notas td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.nota-baixa {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+/* Grid Financeiro (Estilo Selos) */
+.pagamentos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.pag-box {
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+}
+
+.pag-box.pago { background: #e8f5e9; color: #2e7d32; border-color: #c8e6c9; }
+.pag-box.atrasado { background: #ffebee; color: #c62828; border-color: #ffcdd2; }
+.pag-box.pendente { background: #fffde7; color: #f9a825; border-color: #fff9c4; }
+
+.pag-box small { font-weight: bold; margin-bottom: 5px; }
+
+/* Botão Imprimir */
+.btn-imprimir {
+  margin-top: 20px;
+  background: #444;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+/* Regras de Impressão */
+@media print {
+  .busca-header, .alunos-lista, .btn-imprimir {
+    display: none !important;
+  }
+  .ficha-detalhada {
+    padding: 0;
+  }
+  .ficha-print {
+    box-shadow: none;
+    border: none;
+    width: 100%;
+  }
+}
+/* Aumenta o tamanho do modal para caber o scroll */
+.modal-content.grande {
+  width: 90%;
+  max-width: 1000px; /* Bem largo */
+}
+
+/* Filtros */
+.cabecalho-filtro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.filtros-botoes {
+  display: flex;
+  gap: 5px;
+}
+
+.btn-filtro {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.btn-filtro.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* --- LÓGICA DO SCROLL EM X --- */
+.scroll-container-x {
+  width: 100%;
+  overflow-x: auto; /* Permite scroll lateral */
+  overflow-y: hidden;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background: #fafafa;
+  border-radius: 5px;
+}
+
+.lista-disciplinas-horizontal {
+  display: flex;
+  flex-direction: column; /* Organiza em colunas que quebram */
+  flex-wrap: wrap;       /* Permite quebrar para a direita */
+  height: 400px;         /* Altura fixa força o conteúdo a ir para a direita */
+  gap: 10px;
+  align-content: flex-start; /* Alinha o conteúdo à esquerda */
+}
+
+/* Card individual da disciplina */
+.card-disciplina-mini {
+  width: 280px; /* Largura fixa para cada item */
+  background: white;
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.card-disciplina-mini input {
+  width: 70px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.nome-disc {
+  flex: 1;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge-cv-mini {
+  font-size: 0.7rem;
+  background: #333;
+  color: #fff;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.input-saldo {
+  padding: 8px;
+  font-size: 1rem;
+  width: 150px;
+}

@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --nav-altura: 15vh;
+  --azul-confianca: #2c3e50;
+  --azul-foco: #3498db;
+  --verde-sucesso: #27ae60;
+  --amarelo-atencao: #f1c40f;
+  --branco-fundo: #f4f7f6;
+  --cinza-borda: #e0e4e8;
+  --cinza-texto: #048319;
+  --vermelho-erro: #e74c3c;
+}
+
+/* CONTAINER PRINCIPAL */
+.container-home {
+  width: 95vw;
+  min-height: calc(100vh - var(--nav-altura));
+  margin: 0 auto;
+  padding: calc(var(--nav-altura) + 4vh) 5vw 4vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--branco-fundo);
+  color: var(--azul-confianca);
+}
+
+/* ÍCONE PRINCIPAL */
+.container-home > div:first-child {
+  margin-bottom: 3vh;
+}
+
+/* TÍTULO */
+.container-home h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin-bottom: 2vh;
+}
+
+/* TEXTO */
+.container-home p {
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  max-width: 60vw;
+  color: var(--cinza-texto);
+}
+
+/* CARDS */
+.hero-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw;
+  margin-top: 5vh;
+  flex-wrap: wrap;
+}
+
+/* CARD INDIVIDUAL */
+.hero-card {
+  width: 30vw;
+  max-width: 160px;
+  min-width: 120px;
+  padding: 2vh 1.5vw;
+  border-radius: 1rem;
+  background: var(--amarelo-atencao);
+  box-shadow: 0 0.8vh 1.2vh rgba(0, 0, 0, 0.08);
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+
+  /* Animação base */
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background-color 0.35s ease;
+}
+
+/* HOVER (desktop) */
+.hero-card:hover {
+  transform: translateY(-1vh) scale(1.03);
+  box-shadow: 0 1.6vh 2.4vh rgba(0, 0, 0, 0.15);
+  background-color: #f7d046;
+}
+
+/* FEEDBACK DE CLIQUE */
+.hero-card:active {
+  transform: translateY(-0.3vh) scale(0.99);
+  box-shadow: 0 0.6vh 1vh rgba(0, 0, 0, 0.12);
+}
+
+/* O container do livro precisa de perspectiva */
+/* Container do card circular */
+.card {
+  position: relative;
+  width: 260px; 
+  height: 260px; /* Para ser um círculo perfeito, largura deve ser igual à altura */
+  perspective: 1500px;
+  cursor: pointer;
+  margin-bottom: 5vh;
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* Garante o formato redondo */
+  backface-visibility: hidden;
+  transition: transform 1.2s cubic-bezier(0.15, 0.45, 0.3, 1);
+  transform-origin: left center;
+  
+  /* ALINHAMENTO VERTICAL (Imagem topo, Texto baixo) */
+  display: flex;
+  flex-direction: column; /* Empilha os itens */
+  justify-content: center;
+  align-items: center;
+  
+  padding: 20px; /* Evita que o texto encoste na borda do círculo */
+  text-align: center;
+  border: 4px solid var(--azul-confianca); /* Borda mais grossa fica melhor em círculos */
+}
+
+/* Ajuste das imagens dentro do card */
+.card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain; /* Garante que a logo não distorça */
+  border-radius: 50%; /* Se a logo tiver fundo, ela também fica redonda */
+  margin-bottom: 1px; /* Espaço entre imagem e texto */
+}
+
+/* Ajuste do texto dentro do card */
+.card p {
+  font-size: 0.9rem !important; /* Texto menor para caber no círculo */
+  line-height: 1.2;
+  margin: 0;
+  max-width: 100%;
+}
+
+/* Capa do Livro (Fica por cima) */
+.card .front {
+  background-color: rgb(255, 251, 7);
+  color: white;
+  z-index: 2;
+  transform: rotateY(0deg);
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Interior do Livro (Fica por baixo) */
+.card .back {
+  background-color: rgb(255, 255, 255);
+  color: var(--azul-confianca);
+  transform: rotateY(0deg); /* Começa reto atrás da capa */
+  z-index: 1;
+  /* Simula a sombra interna da dobra */
+  box-shadow: inset 20px 0 35px -20px rgba(0,0,0,0.5);
+}
+
+
+/* ANIMAÇÃO DE ABERTURA */
+.card:hover .front {
+  transform: rotateY(-160deg); /* Abre a capa para a esquerda */
+}
+
+/* Opcional: faz a página de trás se mover levemente para dar realismo */
+.card:hover .back {
+  transform: rotateY(-10deg); 
+}
+
+.img-ubuntu {
+  width: 450px !important; /* Tamanho maior conforme seu array (190) */
+  height: 150px !important;
+  border-radius: 0; /* Caso a logo da Ubuntu não seja redonda */
+  filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.3)); /* Dá profundidade */
+  transition: transform 0.3s ease;
+}
+
+/* Efeito ao abrir o livro */
+.card:hover .img-ubuntu {
+  transform: scale(1.8); /* Aumenta levemente quando o livro abre */
+}
+/* MOBILE – toque sem hover agressivo */
+@media (hover: none) {
+  .hero-card:hover {
+    transform: none;
+    box-shadow: 0 0.8vh 1.2vh rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .container-home {
+    margin: 10vh auto;
+  }
+
+  .container-home p {
+    max-width: 90vw;
+  }
+
+  .hero-card {
+    width: 60vw;
+  }
+}

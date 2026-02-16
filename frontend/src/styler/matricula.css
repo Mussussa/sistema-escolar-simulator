@@ -1,0 +1,620 @@
+/* matricula.css */
+
+/* Container principal */
+.admin-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  max-width: 1200px;
+}
+
+/* Títulos */
+.admin-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Tabelas */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.admin-table thead {
+  background-color: #f5f5f5;
+}
+
+.admin-table th {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+  font-weight: 600;
+  color: #555;
+}
+
+.admin-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Seções de turma */
+.turma-section {
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background: #fafafa;
+}
+
+.turma-section h3 {
+  color: #444;
+  margin: 0 0 15px 0;
+  font-size: 16px;
+}
+
+/* Botões */
+.btn-pdf {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #dc3545;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.btn-pdf:hover {
+  background: #c82333;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-validar {
+  padding: 6px 12px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.btn-validar:hover {
+  background: #218838;
+}
+
+.btn-remanejar {
+  padding: 6px 12px;
+  background: #ffc107;
+  color: #212529;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.btn-remanejar:hover {
+  background: #e0a800;
+}
+
+/* Mensagem de lista vazia */
+.admin-table tbody tr td[colspan] {
+  text-align: center;
+  color: #888;
+  padding: 30px;
+  font-style: italic;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 15px;
+    margin: 10px;
+    overflow-x: auto;
+  }
+  
+  .admin-table {
+    font-size: 14px;
+  }
+  
+  .admin-table th,
+  .admin-table td {
+    padding: 8px 10px;
+  }
+  
+  .btn-pdf,
+  .btn-validar,
+  .btn-remanejar {
+    padding: 5px 8px;
+    font-size: 13px;
+  }
+  
+  .turma-section {
+    padding: 10px;
+  }
+}
+.alerta-sistema {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  animation: slideDown 0.4s ease-out;
+}
+
+.alerta-sistema.sucesso { background-color: #27ae60; }
+.alerta-sistema.erro { background-color: #e74c3c; }
+
+@keyframes slideDown {
+  from { transform: translate(-50%, -100%); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
+/* Novo botão de rejeitar adicionado ao arquivo */
+.btn-rejeitar {
+  padding: 6px 12px;
+  background: #dc3545; /* Vermelho padrão (mesmo do PDF) */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.btn-rejeitar:hover {
+  background: #c82333; /* Vermelho mais escuro no hover */
+}
+
+.btn-rejeitar:active {
+  transform: scale(0.95); /* Efeito de clique */
+}
+
+/* Ajuste para alinhar os botões na tabela */
+.admin-table td .btn-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Estilo opcional para destacar o motivo no dashboard (se necessário) */
+.motivo-texto {
+  font-style: italic;
+  color: #666;
+  background: #fdf2f2;
+  padding: 10px;
+  border-left: 4px solid #dc3545;
+  margin-top: 10px;
+}
+
+/* Input com células para cada caractere */
+.input-celulas {
+  font-family: monospace;
+  font-size: 16px;
+  letter-spacing: 0;
+  padding: 6px;
+  border-radius: 4px;
+  border: 2px solid #007bff;
+  background: 
+    repeating-linear-gradient(90deg, 
+      transparent 0 14px, 
+      rgba(0,0,0,0.1) 14px 15px
+    );
+  background-size: 15px 100%;
+  background-position: 6px 0;
+  width: 225px; /* 15px × 15 caracteres */
+}
+
+/* Mostrar a máscara no placeholder */
+.input-celulas::placeholder {
+  color: transparent;
+  background: 
+    linear-gradient(90deg, 
+      #999 0 8px,
+      #666 8px 9px,
+      #999 9px 13px,
+      #666 13px 14px,
+      #999 14px 18px,
+      #666 18px 19px
+    );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Versão com pontos explícitos */
+.input-celulas-pontos {
+  font-family: monospace;
+  font-size: 16px;
+  letter-spacing: 0;
+  padding: 6px;
+  border-radius: 4px;
+  border: 2px solid #007bff;
+  width: 280px; /* 14px × 20 posições */
+  background-image: 
+    linear-gradient(90deg, 
+      transparent 0 14px, 
+      #666 14px 15px,
+      transparent 15px 29px,
+      #666 29px 30px,
+      transparent 30px 44px,
+      #666 44px 45px
+    );
+  background-repeat: no-repeat;
+  background-position: 6px center;
+}
+
+/* Alternativa: input com grid overlay */
+.input-container {
+  position: relative;
+  width: 225px;
+}
+
+.input-grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  display: flex;
+  padding: 6px;
+}
+
+.celula-caractere {
+  flex: 1;
+  border-right: 1px solid rgba(0,0,0,0.1);
+  height: 100%;
+  text-align: center;
+  font-family: monospace;
+  color: #666;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.celula-caractere:nth-child(8),
+.celula-caractere:nth-child(13) {
+  background: rgba(0,123,255,0.1);
+  color: #007bff;
+  font-weight: bold;
+}
+
+.input-preenchimento {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  font-family: monospace;
+  font-size: 16px;
+  letter-spacing: 13.07px; /* 225px / 15 caracteres - ajuste fino */
+  padding: 6px;
+  border-radius: 4px;
+  border: 2px solid #007bff;
+  width: 100%;
+  text-indent: 3px;
+}
+
+/* Para o exemplo: 12345678.1234.123456 */
+.input-exemplo {
+  font-family: monospace;
+  font-size: 16px;
+  letter-spacing: 0;
+  padding: 6px 6px 6px 12px;
+  border-radius: 4px;
+  border: 2px solid #007bff;
+  width: 240px;
+  background: 
+    linear-gradient(90deg, 
+      transparent 0 14px, 
+      #666 14px 15px,
+      transparent 15px 29px,
+      #666 29px 30px,
+      transparent 30px 44px,
+      #666 44px 45px,
+      transparent 45px 59px
+    );
+  background-repeat: no-repeat;
+  background-position: 6px center;
+}
+
+/* Células individuais com inputs separados */
+.grid-inputs {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  gap: 1px;
+  width: 420px; /* 20 células × 21px */
+  padding: 6px;
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  background: #f8f9fa;
+}
+
+.celula-input {
+  width: 20px;
+  height: 30px;
+  text-align: center;
+  border: 1px solid #dee2e6;
+  border-radius: 2px;
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.separador-celula {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #007bff;
+  
+  background: #e9ecef;
+}
+.btn-ok{
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+/* --- ESTILO DAS CÉLULAS DE REFERÊNCIA --- */
+
+/* Container que segura os inputs e os botões */
+.referencia-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap; /* Permite que os botões caiam para a linha de baixo no mobile */
+}
+
+/* A caixa que segura apenas os números e pontos */
+.referencia-grid {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: #f8f9fa;
+  padding: 5px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  
+  /* RESPONSIVIDADE CRÍTICA: Scroll horizontal no mobile */
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Cada quadradinho individual */
+.celula-input {
+  width: 24px;
+  height: 32px;
+  text-align: center;
+  font-family: 'Courier New', monospace; /* Fonte monoespaçada ajuda no alinhamento */
+  font-size: 16px;
+  font-weight: bold;
+  color: #495057;
+  border: 1px solid #dee2e6;
+  border-radius: 3px;
+  background-color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  
+  /* Remove as setas de número dos navegadores */
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.celula-input::-webkit-outer-spin-button,
+.celula-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.celula-input:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  background-color: #f0f8ff;
+  transform: scale(1.05); /* Pequeno zoom ao focar */
+}
+
+/* O ponto separador */
+.separador-ponto {
+  font-weight: bold;
+  color: #6c757d;
+  margin: 0 2px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Grupo de botões OK/Cancel */
+.referencia-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.btn-icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.1s;
+}
+
+.btn-icon:active { transform: scale(0.95); }
+
+.btn-ok { background-color: #28a745; color: white; }
+.btn-cancel { background-color: #dc3545; color: white; }
+
+/* =========================================
+   ESTILOS DO MODAL (MOVER ALUNO / REGULARIZAR)
+   ========================================= */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Garante que fica acima de tudo */
+  backdrop-filter: blur(2px); /* Efeito suave de desfoque no fundo */
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px; /* Largura ideal para o formulário */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.modal-content p {
+  color: #555;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+/* --- ESTILOS DO SELECT (LISTA DE TURMAS) --- */
+.lista-turmas-mover {
+  margin-bottom: 15px;
+}
+
+.lista-turmas-mover select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #495057;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.lista-turmas-mover select:focus {
+  border-color: #80bdff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.lista-turmas-mover select option:disabled {
+  color: #999;
+  background-color: #f0f0f0;
+}
+
+/* --- BOTÕES DE AÇÃO DO MODAL --- */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end; /* Alinha botões à direita */
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.btn-save {
+  background-color: #007bff; /* Azul padrão */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-save:hover {
+  background-color: #0056b3;
+}
+
+.btn-save:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* O botão .btn-cancel já existe no seu CSS (verifique se está ok), 
+   caso contrário, use este: */
+.btn-cancel {
+  background-color: #6c757d; /* Cinza */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: #5a6268;
+}
+
+/* Responsividade do Modal */
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+  
+  .modal-actions button {
+    width: 100%;
+  }
+}

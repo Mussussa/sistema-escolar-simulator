@@ -1,0 +1,236 @@
+/* --- VARIÁVEIS E RESET --- */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e67e22;
+  --bg-light: #f4f6f8;
+  --white: #ffffff;
+  --text-dark: #333;
+  --text-light: #7f8c8d;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --radius: 8px;
+}
+
+.dashboard-container {
+  padding: 1.5rem;
+  max-width: 1400px; /* Largura ampla para dashboards */
+  margin: 0 auto;
+  background-color: var(--bg-light);
+  min-height: 90vh;
+  text-align: left;
+  font-size: 11px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- HEADER --- */
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+  flex-wrap: wrap; /* Quebra linha no mobile */
+  gap: 1rem;
+}
+
+.dash-header h1 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.sub-info {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.btn-historico {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-historico:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* --- CARDS E SEÇÕES --- */
+.dash-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.dash-card h3 {
+  border-bottom: 2px solid var(--bg-light);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* --- AVISOS (GRID) --- */
+.avisos-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Cards responsivos automáticos */
+  gap: 1.5rem;
+}
+
+.aviso-card {
+  border-left: 5px solid var(--secondary-color);
+  background: #fdfdfd;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+  transition: transform 0.2s;
+}
+
+.aviso-card:hover {
+  transform: translateX(5px);
+}
+
+.aviso-card h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.aviso-card p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* --- TABELA DE HORÁRIOS COM SCROLL --- */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto; /* ATIVA O SCROLL HORIZONTAL */
+  -webkit-overflow-scrolling: touch; /* Scroll suave no iOS */
+  border-radius: var(--radius);
+  border: 1px solid #eee;
+}
+
+.horario-table {
+  width: 100%;
+  min-width: 800px; /* Força o scroll se a tela for menor que 800px */
+  border-collapse: collapse;
+}
+
+.horario-table th,
+.horario-table td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #f9f9f9;
+}
+
+.horario-table th {
+  background-color: var(--primary-color);
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  position: sticky; /* Cabeçalho fixo ao rolar verticalmente (se houver altura fixa) */
+  top: 0;
+}
+
+.horario-table tr:last-child td {
+  border-bottom: none;
+}
+
+.horario-table td.tempo-num {
+  font-weight: bold;
+  background-color: #ecf0f1;
+  color: var(--primary-color);
+  width: 80px;
+}
+
+/* Célula com Aula */
+.tem-aula {
+  background-color: #ebf5fb;
+  transition: background 0.3s;
+}
+
+.tem-aula:hover {
+  background-color: #d6eaf8;
+}
+
+/* Célula Vazia */
+.vazio {
+  color: #ccc;
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+/* Conteúdo da Célula (Matéria + Hora) */
+.info-aula {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.materia {
+  font-weight: 700;
+  color: var(--primary-color);
+  display: block;
+  word-wrap: break-word;       /* Quebra palavras longas se necessário */
+  overflow-wrap: break-word;   /* Compatibilidade moderna */
+  word-break: break-word;      /* Garante que não saia do limite do pai */
+  white-space: normal;
+}
+
+.horario {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  background: rgba(255,255,255,0.8);
+  padding: 2px 6px;
+  border-radius: 10px;
+  align-self: center;
+}
+
+/* --- RESPONSIVIDADE MOBILE --- */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+   position: absolute;
+  width: 100%;
+  
+  }
+
+  /* Header vira coluna no mobile */
+  .dash-header {
+    flex-direction: column;
+    text-align: center;
+    align-items: stretch;
+  }
+
+  .btn-historico {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Avisos ficam um embaixo do outro */
+  .avisos-lista {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ajuste visual da tabela para indicar scroll */
+  .table-responsive {
+    box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.1); /* Sombra indicando continuação à direita */
+  }
+}

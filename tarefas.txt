@@ -1,0 +1,14 @@
+# 13-Emissao dos recibos deve ser confirmada através do ID do pagamento. O que significa que A pessoa da secretaria ao pagar deve gerar 
+
+# 6- Poder obter a ficha de pagamentos através de turma
+# 4-Quatro avaliações na carga horária-90
+# 20 horas- duas avaliações 
+# 50- acima são 4
+CV3-1 ano
+CV4-2 ano
+9-poder introduzir notas anteriores dos antigos ingressos 
+10- poder enviar todas as notas
+# 11-Geração de assinaturas
+12-5 do mês posterior
+# 14- É preciso autorização do banco certo?
+15-

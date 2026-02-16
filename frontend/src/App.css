@@ -1,0 +1,126 @@
+:root {
+  --nav-altura: 13vh;
+  --nav-bg: #2c3e50;
+  --nav-bg-public: #34495e;
+  --nav-texto: #ffffff;
+  --nav-hover: #3498db;
+}
+
+/* NAVBAR BASE */
+.navbar,
+.navbar-public {
+  width: 100vw;
+  min-height: var(--nav-altura);
+  display: flex;
+  align-items: center;
+  padding: 0 3vw;
+  gap: 2vw;
+  background: var(--nav-bg);
+  color: var(--nav-texto);
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+/* NAVBAR PÚBLICA */
+.navbar-public {
+  background: var(--nav-bg-public);
+  justify-content: center;
+ 
+}
+
+/* LINKS */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  color: var(--nav-texto);
+  text-decoration: none;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  padding: 1vh 1.2vw;
+  border-radius: 0.6rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+  align-items: center;
+  margin-top: 22px;
+}
+
+/* LINK ATIVO */
+.nav-link.active {
+  background: var(--nav-hover);
+}
+
+/* HOVER */
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-0.2vh);
+}
+
+/* BOTÃO SAIR */
+.btn-sair {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* CONTEÚDO */
+.content {
+  padding: 4vh 4vw;
+  min-height: calc(100vh - var(--nav-altura));
+}
+
+/* ========================= */
+/* 📱 TABLET */
+/* ========================= */
+@media (max-width: 900px) {
+  .navbar,
+  .navbar-public {
+    padding: 1vh 4vw;
+    gap: 1.5vw;
+    border: #3498db solid 1px;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 1vh 2vw;
+  }
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+@media (max-width: 600px) {
+  .navbar,
+  .navbar-public {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: auto;
+    padding: 2vh 4vw;
+    border: #3498db solid 1px;
+  }
+
+  .nav-link {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 1.5vh 0;
+  }
+
+  .btn-sair {
+    margin-left: 0;
+  }
+
+  .content {
+   
+    padding: 3vh 4vw;
+  }
+
+}
+
+/* ========================= */
+/* 🖨️ PRINT */
+/* ========================= */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
