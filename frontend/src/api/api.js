@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const api = axios.create({
   // Troca o IP por localhost
-  baseURL: process.env.VITE_API_URL, 
+  baseURL: import.meta.env.VITE_API_URL, 
   withCredentials: true // Isto é obrigatório para enviar/receber o cookie
 });
 
