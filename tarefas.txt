@@ -12,3 +12,14 @@ CV4-2 ano
 12-5 do mês posterior
 # 14- É preciso autorização do banco certo?
 15-
+
+# DATABASE_URL=postgresql://postgres.cwsmrlkznvxkobstldxp:[YOUR-PASSWORD]@aws-1-eu-west-1.pooler.supabase.com:6543/postgres
+# EMAIL_PASS=mjsevwaliedaodlh
+# EMAIL_USER=ismaelchaibo8517@gmail.com
+# JWT_SECRET=ydgddeuedgafguiawdufguilcgslgafogedfweddvwdedgejlfeleglfglefefgeflwfwelglfewgflgelgfglefgfjglwegfhglgeflfw
+# NODE_ENV=production
+# NODE_OPTIONS="--dns-result-order=ipv4first"
+# PORT=10000
+# RESEND_API_KEY=re_csJFPNjQ_Hg7YkE6u18vEgGGyZtcki1v7
+# SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmeGpoaXNucnh1a2dmb2Vla2hnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MDQ5OTUxMSwiZXhwIjoyMDg2MDc1NTExfQ.5CezkFCQtn3w9v4lxyH4bu_K4Zs7hJF8YccgKUB7Wyk
+# SUPABASE_URL=https://tfxjhisnrxukgfoeekhg.supabase.co
