@@ -233,7 +233,7 @@ const handleSubmit = async (e) => {
               </label>
               <select
                 name="cursoId"
-                required
+                
                 onChange={handleChange}
                 value={formData.cursoId}
               >
