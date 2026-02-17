@@ -27,7 +27,7 @@ exports.inscreverCandidato = async (req, res) => {
     ultima_classe: Joi.string().max(20).required(),
     telefone_emergencia: Joi.string().pattern(/^[0-9+ ]+$/).required(),
     contato_nome: Joi.string().max(25).required(),
-    tipo_sanguineo: Joi.string().valid("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-").optional(),
+    tipo_sanguineo: Joi.string().valid("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-").optional().allow("", null),
     cursoId: Joi.string().guid({ version: "uuidv4" }).allow("", null),
     alergias: Joi.string().max(500).allow("", null),
     contacto: Joi.string().pattern(/^[0-9+ ]+$/).required(),
