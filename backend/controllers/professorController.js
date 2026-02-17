@@ -550,6 +550,8 @@ exports.salvarConfiguracaoNotas = async (req, res) => {
     res.status(500).json({ erro: "Erro interno ao processar pesos das notas." });
   }
 };
+
+
 // Adicione esta função que está a faltar para a rota GET
 exports.getConfiguracaoNotas = async (req, res) => {
   try {
