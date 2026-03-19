@@ -8,7 +8,7 @@ const somenteDono = (req, res, next) => {
   // O seu auth.js já coloca o role diretamente em req.role
   const userRole = req.role; 
 
-  console.log("Role verificada:", userRole); // Debug para ter certeza
+  //console.log("Role verificada:", userRole); // Debug para ter certeza
 
   // Verificação simples e direta
   if (userRole !== 'configuracoes') {
